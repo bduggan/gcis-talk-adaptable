@@ -1,0 +1,224 @@
+% GCIS ESIP talk
+
+\documentclass{beamer}
+%\documentclass[notes=only]{beamer}
+
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Warsaw}
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+
+\begin{document}
+\title{The Global Change Information System}   
+\subtitle{Reports, Data, APIs, Communication and Information}
+\author{Brian Duggan\inst{1}\inst{2}, Steve Aulenbach\inst{1}\inst{2}, \\
+Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}} 
+\date{July 10, 2014} 
+\institute[shortinst]{\inst{1} UCAR, \inst{2} USGCRP, \inst{3} NASA}
+
+\begin{frame}[plain]
+\titlepage
+\begin{center}
+\url{http://data.globalchange.gov}
+\url{http://github.com/USGCRP/gcis}
+\end{center}
+\end{frame}
+
+\begin{frame}[plain]
+\frametitle{Outline}\tableofcontents 
+\end{frame}
+
+\section{Assembly}
+
+%% overview
+
+% http://nca2014.globalchange.gov
+%   -> explore the report
+%   -> our changing climate
+%   -> explore our changing climate
+%   -> observed change
+%   -> Figure 2.2 : CO2 Concentration
+%   -> Details/Download
+%   -> Image
+%   -> datasets used
+
+\subsection{Who}
+\frametitle{Who}
+\frame{
+    \begin{itemize}
+        \item Scientists
+        \item Science analysts
+        \item Editors
+        \item Graphic designers
+        \item Web developers
+        \item Project Managers
+    \end{itemize}
+}
+
+\subsection{How}
+\frame{
+\frametitle{How}
+    \begin{itemize}
+        \item Spreadsheets
+        \item Google docs
+        \item Email
+        \item Endnote
+        \item Scientific Software
+        \item Graphics Software
+        \item Content Management Systems
+        \item Wikis
+        \item Various miscellaneous desktop and cloud software
+    \end{itemize}
+\note{
+Report writing involves creativity and a wide variety of skills;
+there is no one set of tools.
+}
+}
+
+\subsection{What}
+\frame{
+\frametitle{What}
+    The tools are used to represent and manipulate various resources.
+    \begin{itemize}
+        \item Journal Articles
+        \item Reports
+        \item References
+        \item Images, Figures, Tables
+        \item Findings
+        \item Organizations
+        \item People
+        \item Datasets
+    \end{itemize}
+}
+
+
+
+\subsection{Role of the GCIS}
+\frame{
+\frametitle{Role of the GCIS}
+    \begin{itemize}
+        \item Common points of reference
+        \item Common vocabulary across teams
+        \item Language, terminology, vocabulary, ontology
+        \item Uniform Resource Identifiers
+        \item URIs are actionable : URLs
+        \item Information manipulation via API or web forms
+        \item Information extraction via API or browsing
+        \item Information modeling with relational or semantic models
+        \item Fine grained tracking of all changes.
+        \item Convenient useful information entry
+        \item Highly scalable information retrieval
+    \end{itemize}
+}
+
+
+%% tech
+
+\section{Deployment}
+\subsection{Functionality}
+\frame{
+    \frametitle{Functionality}
+    \begin{itemize}
+        \item Support nca2014.globalchange.gov (jquery)
+        \item GCIS provides JSON backend
+        \item Figures have client side calls
+        \item Also uses dataset landing pages
+        \item API used for data ingestion and retrieval
+        \item Support semantic queries
+        \item SPARQL endpoint \url{http://data.globalchange.gov/sparql}
+        \item JSON, RDF, RDF-A, HTML, Turtle, RDF-XML
+    \end{itemize}
+}
+
+\subsection{Server}
+\frame{
+    \frametitle{Server}
+    \begin{itemize}
+        \item Perl (mojolicious)
+        \item nginx, proxies
+        \item postgres
+        \item Virtuoso
+        \item Caching
+    \end{itemize}
+}
+
+\subsection{Clients}
+\frame{
+    \frametitle{Clients}
+    \begin{itemize}
+        \item Python (Andrew)
+        \item Perl
+        \item Javascript (jquery)
+        \item php (Drupal)
+    \end{itemize}
+}
+
+\subsection{Versioning}
+\frame{
+    \frametitle{Versioning}
+    \begin{itemize}
+        \item git
+        \item Postgres audit triggers
+    \end{itemize}
+}
+
+\subsection{Testing}
+\frame{
+    \frametitle{Testing}
+    \begin{itemize}
+        \item Test driven development (unit tests)
+        \item QA (gcis-qa)
+    \end{itemize}
+}
+
+%% concepts
+
+\section{Information Model}
+\subsection{Concepts}
+\begin{frame}
+    \begin{center}
+        \Huge Narrative vs structure
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Semantic vs Relational
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Resources
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Identifiers
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        \Huge Publications, Contributors
+    \end{center}
+\end{frame}
+
+\subsection{Details}
+\begin{frame}
+    \begin{center}
+        \url{http://data.globalchange.gov/resources}
+    \end{center}
+\end{frame}
+
+\section{Discussion}
+\subsection{Discussion}
+\begin{frame}
+    \begin{center}
+        Thank you
+    \end{center}
+\end{frame}
+
+
+\end{document}
+
