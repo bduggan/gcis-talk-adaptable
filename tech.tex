@@ -1,0 +1,60 @@
+% GCIS ESIP talk
+
+\documentclass{beamer}
+\begin{document}
+\title{Global Change Information System}   
+\subtitle{Reports, data, APIs, people and information}
+\author{Brian Duggan, Steve Aulenbach, Robert Wolfe, Justin Goldstein} 
+\date{July 10, 2014} 
+
+\frame{\titlepage} 
+
+\frame{
+    NCA3 deployment
+    \begin{itemize}
+        \item nca2014.globalchange.gov (jquery)
+        \item GCIS provides JSON backend
+        \item Figures have client side calls
+        \item Also uses dataset landing pages
+        \item API used for data ingestion and retrieval
+    \end{itemize}
+}
+
+\frame{
+    Server
+    \begin{itemize}
+        \item Perl (mojolicious)
+        \item nginx, proxies
+        \item postgres
+        \item Virtuoso
+    \end{itemize}
+}
+
+\frame{
+    Clients
+    \begin{itemize}
+        \item Python (Andrew)
+        \item Perl
+        \item Javascript (jquery)
+        \item php (Drupal)
+    \end{itemize}
+}
+
+\frame{
+    Content management
+    \begin{itemize}
+        \item git
+        \item Postgres audit triggers
+    \end{itemize}
+}
+
+\frame{
+    Testing
+    \begin{itemize}
+        \item TDD (unit tests)
+        \item QA (gcis-qa)
+    \end{itemize}
+}
+
+\end{document}
+
