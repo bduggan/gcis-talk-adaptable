@@ -46,9 +46,8 @@ Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}}
     \frametitle{What}
     \begin{itemize}
         \item The Third National Climate Assessment
-        \item PDF(s)
-        \item Website
-        \item Information System
+        \item PDF(s)  (\url{http://data.globalchange.gov/report/nca3})
+        \item Website (\url{http://nca2014.globalchange.gov})
     \end{itemize}
 }
 
@@ -61,7 +60,8 @@ Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}}
         \item Editors
         \item Graphic designers
         \item Web developers
-        \item Project Managers
+        \item Data managers
+        \item Project managers
     \end{itemize}
 }
 
@@ -99,24 +99,6 @@ Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}}
     \end{itemize}
 }
 
-\subsection{Resources}
-\frame{
-\frametitle{Resources}
-    http://data.globalchange.gov
-    \begin{itemize}
-        \item \href{http://data.globalchange.gov/article/10.1080/15287390801997625}{/article/10.1080/15287390801997625}
-        \item \href{http://data.globalchange.gov/report/usfs-pnw-gtr-855}{/report/usfs-pnw-gtr-855}
-        \item \href{http://data.globalchange.gov/reference/007a7014-723e-4ceb-a395-5c986b1bf884}{/reference/007a7014-723e-4ceb-a395-5c986b1bf884}
-        \item \href{http://data.globalchange.gov/report/nca3/figure/global-temperature-and-carbon-dioxide}{/report/nca3/figure/global-temperature-and-carbon-dioxide}
-        \item \href{http://data.globalchange.gov/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}{/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}
-        \item \href{http://data.globalchange.gov/report/nca3/table/decisions-scales}{/report/nca3/table/decisions-scales}
-        \item \href{http://data.globalchange.gov/report/nca3/finding/extreme-precipitation-increase}{/report/nca3/finding/extreme-precipitation-increase}
-        \item \href{http://data.globalchange.gov/organization/nasa}{/organization/nasa}
-        \item \href{http://data.globalchange.gov/person/0000-0001-6667-7047}{/person/0000-0001-6667-7047}
-        \item \href{http://data.globalchange.gov/dataset/nca3-cddv2-r1}{/dataset/nca3-cddv2-r1}
-    \end{itemize}
-}
-
 \subsection{Role of the GCIS}
 \frame{
 \frametitle{Role of the GCIS}
@@ -135,6 +117,26 @@ Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}}
     \end{itemize}
 }
 
+\subsection{Identifiers}
+\frame{
+\frametitle{Resources}
+    GCIDs\\
+    http://data.globalchange.gov
+    \begin{itemize}
+        \item \href{http://data.globalchange.gov/article/10.1080/15287390801997625}{/article/10.1080/15287390801997625}
+        \item \href{http://data.globalchange.gov/report/usfs-pnw-gtr-855}{/report/usfs-pnw-gtr-855}
+        \item \href{http://data.globalchange.gov/reference/007a7014-723e-4ceb-a395-5c986b1bf884}{/reference/007a7014-723e-4ceb-a395-5c986b1bf884}
+        \item \href{http://data.globalchange.gov/report/nca3/figure/global-temperature-and-carbon-dioxide}{/report/nca3/figure/global-temperature-and-carbon-dioxide}
+        \item \href{http://data.globalchange.gov/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}{/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}
+        \item \href{http://data.globalchange.gov/report/nca3/table/decisions-scales}{/report/nca3/table/decisions-scales}
+        \item \href{http://data.globalchange.gov/report/nca3/finding/extreme-precipitation-increase}{/report/nca3/finding/extreme-precipitation-increase}
+        \item \href{http://data.globalchange.gov/organization/nasa}{/organization/nasa}
+        \item \href{http://data.globalchange.gov/person/0000-0001-6667-7047}{/person/0000-0001-6667-7047}
+        \item \href{http://data.globalchange.gov/dataset/nca3-cddv2-r1}{/dataset/nca3-cddv2-r1}
+    \end{itemize}
+}
+
+
 
 %% tech
 
@@ -143,49 +145,14 @@ Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}}
 \frame{
     \frametitle{Functionality}
     \begin{itemize}
-        \item Support nca2014.globalchange.gov (jQuery)
-        \item GCIS provides JSON backend
-        \item Figures have client side calls
-        \item Also uses dataset landing pages
-        \item API used for data ingestion and retrieval
-        \item Support semantic queries
-        \item SPARQL endpoint \url{http://data.globalchange.gov/sparql}
-        \item JSON, RDF, RDF-A, HTML, Turtle, RDF-XML
-    \end{itemize}
-}
-
-\subsection{Architecture}
-\frame{
-    \frametitle{Architecture}
-    \begin{itemize}
-        \item RDBMS (PostgreSQL) for storage
-        \item HTML templates
-        \item Turtle templates into other formats
-        \item Scrape into triple store
-        \item Data structures into JSON, YAML
-    \end{itemize}
-}
-
-\subsection{Server}
-\frame{
-    \frametitle{Server}
-    \begin{itemize}
-        \item Perl (mojolicious)
-        \item nginx, proxies
-        \item postgres
-        \item Virtuoso
-        \item Caching
-    \end{itemize}
-}
-
-\subsection{Clients}
-\frame{
-    \frametitle{Clients}
-    \begin{itemize}
-        \item Python (Andrew)
-        \item Perl
-        \item Javascript (jQuery)
-        \item php (Drupal)
+        \item Support NCA3 report production
+        \item Support NCA3 website (client side jQuery)
+        \item Provide minimal landing pages for resources
+        \item Provide a public JSON API \url{http://data.globalchange.gov/api_reference}
+        \item Provide semantic information
+        \item Be interoperable (e.g. use existing identifiers)
+        \item Provide a public SPARQL endpoint \url{http://data.globalchange.gov/sparql}
+        \item JSON, RDF, schema.org, HTML, Turtle, RDF-XML
     \end{itemize}
 }
 
@@ -223,27 +190,44 @@ WHERE {
 
 \end{frame}
 
-
-\subsection{Versioning}
-\frame{
-    \frametitle{Versioning}
-    \begin{itemize}
-        \item git for code
-        \item Postgres audit mechanisms for content
-    \end{itemize}
-}
-
 \subsection{Testing}
 \frame{
     \frametitle{Testing}
     \begin{itemize}
         \item Test driven development (unit tests)
         \item SPARQL tests
-        \item Continuous Integration Testing
+        \item Continuous Integration Testing (github, travis-ci.org)
         \item Test driven data acquisition
-        \item Continuous Content Validation (gcis-qa)
+        \item Continuous Content Validation\\
+            \url{http://github.com/USGCRP/gcis-qa}
     \end{itemize}
 }
+
+\subsection{Server Architecture}
+\frame{
+    \frametitle{Server Architecture}
+    \begin{itemize}
+        \item RDBMS (PostgreSQL) for storage\\
+            Fine-grained transaction auditing, referential integrity
+        \item HTML templates
+        \item Turtle templates (and other formats)
+        \item Scrape into triple store (Virtuoso)
+        \item Data structures into JSON, YAML
+        \item nginx reverse proxy cache
+    \end{itemize}
+}
+
+\subsection{Clients}
+\frame{
+    \frametitle{Clients}
+    \begin{itemize}
+        \item Python (Andrew)\\ \url{http://github.com/USGCRP/gcis-py-client}
+        \item Perl\\ \url{http://github.com/USGCRP/gcis-pl-client}
+        \item Javascript (jQuery)
+        \item php (Drupal)
+    \end{itemize}
+}
+
 
 %% concepts
 
@@ -275,7 +259,8 @@ WHERE {
 
 \begin{frame}
     \begin{center}
-        \Huge Publications, Contributors
+        \Huge Publications, Contributors\\
+        (Entities, Agents, Activities)
     \end{center}
 \end{frame}
 
