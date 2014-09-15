@@ -159,32 +159,33 @@ Robert Wolfe\inst{2}\inst{3}, Justin Goldstein\inst{1}\inst{2}}
 \subsection{SPARQL}
 \begin{frame}[fragile]
     \frametitle{SPARQL}
-     \url{http://bit.ly/gcistest}
+     \url{http://bit.ly/gcis-test}
 \begin{tiny}
 \begin{semiverbatim}
-PREFIX dbpediaowl: <http://dbpedia.org/ontology/>
-PREFIX bibo: <http://purl.org/ontology/bibo/>
-PREFIX gcis: <http://data.globalchange.gov/gcis.owl#>
-PREFIX cito: <http://purl.org/spar/cito/>
+    PREFIX bibo: <http://purl.org/ontology/bibo/>
+    PREFIX gcis: <http://data.globalchange.gov/gcis.owl#>
+    PREFIX cito: <http://purl.org/spar/cito/>
+    PREFIX dcterms: <http://purl.org/dc/terms/>
+    PREFIX dbprop: <http://dbpedia.org/property/>
+    PREFIX dbpo: <http://dbpedia.org/ontology/>
 
-SELECT DISTINCT ?gcisjournal
-FROM <http://data.globalchange.gov/sparql>
-WHERE {
-{
-   SERVICE <http://data.globalchange.gov/sparql> {
-     ?gcisjournal a bibo:Journal .
-     ?gcisjournal bibo:issn ?issn .
-     ?gcisarticle gcis:inPublication ?gcisjournal .
-     ?gcisarticle cito:isCitedBy <http://data.globalchange.gov/report/nca3> .
-   } 
-   BIND(STRLANG(?issn, "en") AS ?issn_en)
-}  
-   SERVICE <http://dbpedia.org/sparql> {
-     ?dbpjournal dbpediaowl:frequencyOfPublication "Monthly"@en .
-     ?dbpjournal dbpediaowl:issn ?issn_en .
-     FILTER(STR(?issn_en) = ?issn)
-   } 
-}  
+    SELECT  DISTINCT ?dbpjournal ?gcisjournal ?issn
+    FROM <http://data.globalchange.gov>
+    WHERE \{
+        SERVICE <http://data.globalchange.gov/sparql> \{
+            ?gcisjournal a bibo:Journal .
+            ?gcisjournal bibo:issn ?issn .
+            ?gcisjournal dcterms:hasPart ?gcisarticle .
+            ?gcisarticle a bibo:Article .
+            ?gcisarticle dcterms:isPartOf ?gcisjournal .
+            ?gcisarticle cito:isCitedBy <http://data.globalchange.gov/report/nca3> .
+         \}
+       SERVICE <http://dbpedia.org/sparql> \{
+        ?dbpjournal dbprop:frequency "Monthly"@en .
+        ?dbpjournal dbpo:issn ?issnd .
+        \}
+      FILTER(?issnd = ?issn)
+    \}
 \end{semiverbatim}
 \end{tiny}
 
