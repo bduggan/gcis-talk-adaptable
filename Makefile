@@ -1,8 +1,8 @@
 
-all: gcis_tech.pdf
+all: adaptable.pdf
 
-gcis_tech.pdf: gcis_tech.tex
-	mkdir -p out && pdflatex -output-directory out/ ./gcis_tech.tex 2>/tmp/tex.err >/tmp/tex.out && mv out/gcis_tech.pdf .
+adaptable.pdf: adaptable.tex
+	mkdir -p out && pdflatex -output-directory out/ ./adaptable.tex && mv out/adaptable.pdf .
 
 clean:
 	rm out/*
