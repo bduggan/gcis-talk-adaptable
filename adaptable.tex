@@ -4,12 +4,13 @@
 %\documentclass[notes=only]{beamer}
 
 \setbeamertemplate{navigation symbols}{}
-\usetheme{Warsaw}
+\usetheme{Hannover}
+\usecolortheme{dove}
 \beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
 
 \begin{document}
-\title{Adaptable Information Models in the Global Change Information System}
-\author{
+\title[Adaptable GCIS Information Models]{Adaptable Information Models in the Global Change Information System}
+\author[Duggan et al]{
     Brian Duggan\inst{1}\inst{2},
     Andrew Buddenberg\inst{3},
     Steve Aulenbach\inst{1}\inst{2},
@@ -19,10 +20,15 @@
 \date{July 16, 2014} 
 \institute[shortinst]{\inst{1} UCAR, \inst{2} USGCRP, \inst{3} NASA}
 
+\begingroup
+\makeatletter
+\setlength{\hoffset}{-.5\beamer@sidebarwidth}
+\makeatother
+
 \begin{frame}[plain]
 \titlepage
 \begin{center}
-\url{http://data.globalchange.gov}
+\url{http://data.globalchange.gov}\\
 \url{http://github.com/USGCRP/gcis}
 \end{center}
 \end{frame}
@@ -30,6 +36,7 @@
 \begin{frame}[plain]
 \frametitle{Outline}\tableofcontents 
 \end{frame}
+\endgroup
 
 \section{NCA3 Report Assembly}
 
