@@ -4,12 +4,15 @@
 %\documentclass[notes=only]{beamer}
 
 \setbeamertemplate{navigation symbols}{}
-\usetheme{Hannover}
+\usetheme{Boadilla}
 \usecolortheme{dove}
 \beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[circle]
 
 \begin{document}
-\title[Adaptable GCIS Information Models]{Adaptable Information Models in the Global Change Information System}
+\title[Global Change Information System]{Adaptable Information Models in the\\
+Global Change Information System}
 \author[Duggan et al]{
     Brian Duggan\inst{1}\inst{2},
     Andrew Buddenberg\inst{3}, \\
@@ -17,18 +20,19 @@
     Robert Wolfe\inst{1}\inst{4},
     Justin Goldstein\inst{1}\inst{2}
 }
-\date{July 16, 2014} 
+\date{December 16, 2014} 
 \institute[UCAR, USGCRP, NASA]{
-\inst{1} US Global Change Research Program, \\
-\inst{2} University Coporation for Atmospheric Research, \\
+\inst{1} US Global Change Research Program \\
+\inst{2} University Coporation for Atmospheric Research \\
 \inst{3} National Oceanic and Atmospheric Administration \\
 \inst{4} National Aeronautics and Space Administration
 }
 
-\begingroup
-\makeatletter
-\setlength{\hoffset}{-.5\beamer@sidebarwidth}
-\makeatother
+% \begingroup
+% \makeatletter
+% \setlength{\hoffset}{-.5\beamer@sidebarwidth}
+% \makeatother
+% \endgroup
 
 \begin{frame}[plain]
 \titlepage
@@ -38,12 +42,11 @@
 \end{center}
 \end{frame}
 
-\begin{frame}[plain]
-\frametitle{Outline}\tableofcontents 
-\end{frame}
-\endgroup
+% \begin{frame}[plain]
+% \frametitle{Outline}\tableofcontents 
+% \end{frame}
 
-\section{NCA3 Report Assembly}
+\section{About}
 
 %% overview
 
@@ -58,79 +61,94 @@
 %   -> datasets used
 
 \subsection{What}
+
 \frame{
-    \frametitle{What}
-    \begin{itemize}
-        \item The Third National Climate Assessment
-        \item PDF(s)  (\url{http://data.globalchange.gov/report/nca3})
-        \item Website (\url{http://nca2014.globalchange.gov})
-    \end{itemize}
+    The Global Change Information System (GCIS) provides a way to
+    access timely structured information about global change.  \\
 }
 
-\subsection{Who}
 \frame{
-\frametitle{Who}
-    \begin{itemize}
-        \item Scientists (Authors)
-        \item Science analysts
-        \item Editors
-        \item Graphic designers
-        \item Web developers
-        \item Data managers
-        \item Project managers
-    \end{itemize}
+    The first public release of GCIS was in May, 2013.\\
+    Initial population of the database was driven by supporting {\bf the
+    Third National Climate Assessment}.  This was released in May, 2014.
 }
 
-\subsection{How}
-\frame{
-\frametitle{How}
-    \begin{itemize}
-        \item Spreadsheets
-        \item Google docs
-        \item Email
-        \item Endnote
-        \item Scientific Software
-        \item Graphics Software
-        \item Content Management Systems
-        \item Wikis
-        \item Various miscellaneous desktop and cloud software
-    \end{itemize}
+\frame {
+    \frametitle{The Third National Climate Assessment}
+    This 800 page document and its website involved {\bf colloboration} between 300 authors, numerous
+    editors, graphics producers, scientists, data scientists, software developers, and web teams.
 }
 
-\subsection{Resources}
 \frame{
-\frametitle{Resources}
-    The tools are used to represent and manipulate various resources.
-    \begin{itemize}
-        \item Journal Articles
-        \item Reports
-        \item References
-        \item Figures
-        \item Images
-        \item Tables
-        \item Findings
-        \item Organizations
-        \item People
-        \item Datasets
-    \end{itemize}
+    \frametitle{collaboration}
+    The GCIS facilitated the assembly of the report by providing common {\bf identifiers} for
+    resources and concepts.
 }
 
-\subsection{Role of the GCIS}
 \frame{
-\frametitle{Role of the GCIS}
-    \begin{itemize}
-        \item Common points of reference
-        \item Common vocabulary across teams
-        \item Language, terminology, vocabulary, ontology
-        \item Uniform Resource Identifiers
-        \item URIs are actionable : URLs
-        \item Information manipulation via API or web forms
-        \item Information extraction via API or browsing
-        \item Information modeling with relational or semantic models
-        \item Fine grained tracking of all changes.
-        \item Convenient useful information entry
-        \item Highly scalable information retrieval
-    \end{itemize}
+    \frametitle{identifiers}
+    Identifiers are URIs and correspond to explicitly defined concepts.  They can be
+    read or written using a {\bf RESTful API}.
+}
+
+\frame{
+        \frametitle{RESTful API}
+        The architecture for the GCIS is built around providing :
+        \begin{itemize}
+            \item{a RESTful API}\\
+                GET a URL for JSON, Turtle or HTML
+            \item{Triple store\\
+                URIs in the triple store are resolvable URLs in the API.}
+        \end{itemize}
+}
+
+\frame{
+    \frametitle{architecture}
+    ingest - POST/PUT - relational database \\
+                    -- templates -- turtle - {\bf triple store} \\
+                    -- JSON - API/faceted search \\
+}
+
+\begin{frame}[fragile]
+    \frametitle{SPARQL}
+     \url{http://bit.ly/gcis-dbpedia}
+\begin{tiny}
+\begin{semiverbatim}
+    PREFIX bibo: <http://purl.org/ontology/bibo/>
+    PREFIX gcis: <http://data.globalchange.gov/gcis.owl#>
+    PREFIX cito: <http://purl.org/spar/cito/>
+    PREFIX dcterms: <http://purl.org/dc/terms/>
+    PREFIX dbprop: <http://dbpedia.org/property/>
+    PREFIX dbpo: <http://dbpedia.org/ontology/>
+
+    SELECT  DISTINCT ?dbpjournal ?gcisjournal ?issn
+    FROM <http://data.globalchange.gov>
+    WHERE \{
+        SERVICE <http://data.globalchange.gov/sparql> \{
+            ?gcisjournal a bibo:Journal .
+            ?gcisjournal bibo:issn ?issn .
+            ?gcisjournal dcterms:hasPart ?gcisarticle .
+            ?gcisarticle a bibo:Article .
+            ?gcisarticle dcterms:isPartOf ?gcisjournal .
+            ?gcisarticle cito:isCitedBy <http://data.globalchange.gov/report/nca3> .
+         \}
+       SERVICE <http://dbpedia.org/sparql> \{
+        ?dbpjournal dbprop:frequency "Monthly"@en .
+        ?dbpjournal dbpo:issn ?issnd .
+        \}
+      FILTER(?issnd = ?issn)
+    \}
+\end{semiverbatim}
+\end{tiny}
+
+\end{frame}
+
+
+\frame{
+    \frametitle{results}
+
+    go here
+
 }
 
 \subsection{Identifiers}
@@ -171,41 +189,6 @@
         \item JSON, RDF, schema.org, HTML, Turtle, RDF-XML
     \end{itemize}
 }
-
-\subsection{SPARQL}
-\begin{frame}[fragile]
-    \frametitle{SPARQL}
-     \url{http://bit.ly/gcis-dbpedia}
-\begin{tiny}
-\begin{semiverbatim}
-    PREFIX bibo: <http://purl.org/ontology/bibo/>
-    PREFIX gcis: <http://data.globalchange.gov/gcis.owl#>
-    PREFIX cito: <http://purl.org/spar/cito/>
-    PREFIX dcterms: <http://purl.org/dc/terms/>
-    PREFIX dbprop: <http://dbpedia.org/property/>
-    PREFIX dbpo: <http://dbpedia.org/ontology/>
-
-    SELECT  DISTINCT ?dbpjournal ?gcisjournal ?issn
-    FROM <http://data.globalchange.gov>
-    WHERE \{
-        SERVICE <http://data.globalchange.gov/sparql> \{
-            ?gcisjournal a bibo:Journal .
-            ?gcisjournal bibo:issn ?issn .
-            ?gcisjournal dcterms:hasPart ?gcisarticle .
-            ?gcisarticle a bibo:Article .
-            ?gcisarticle dcterms:isPartOf ?gcisjournal .
-            ?gcisarticle cito:isCitedBy <http://data.globalchange.gov/report/nca3> .
-         \}
-       SERVICE <http://dbpedia.org/sparql> \{
-        ?dbpjournal dbprop:frequency "Monthly"@en .
-        ?dbpjournal dbpo:issn ?issnd .
-        \}
-      FILTER(?issnd = ?issn)
-    \}
-\end{semiverbatim}
-\end{tiny}
-
-\end{frame}
 
 \subsection{Testing}
 \frame{
