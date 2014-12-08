@@ -145,120 +145,6 @@ Global Change Information System}
     Identifiers for resources are curated by various organizations; find ways to link them together.
 }
 
-%%%% \frame{
-%%%%     Function 1 : support the production of the third National Climate Assessment.
-%%%%     
-%%%%     One year earlier, in May 2013, the USGCRP had the first public release of the
-%%%%     Global Change Information System.\\
-%%%%     \medskip
-%%%%     The GCIS provides identifiers and a RESTful API for resources used in the construction
-%%%%     of the report.\\
-%%%%     http://data.globalchange.gov
-%%%%     \begin{itemize}
-%%%%         \item \href{http://data.globalchange.gov/report/nca3}{/report/nca3}
-%%%%         \item \href{http://data.globalchange.gov/report/nca3/finding/extreme-precipitation-increase}{/report/nca3/finding/extreme-precipitation-increase}
-%%%%         \item \href{http://data.globalchange.gov/article/10.1080/15287390801997625}{/article/10.1080/15287390801997625}
-%%%%     \end{itemize}
-%%%% }
-%%%% 
-%%%% \frame {
-%%%%     \frametitle{The Third National Climate Assessment}
-%%%%     This 800 page document and its website involved {\bf colloboration} between 300 authors, numerous
-%%%%     editors, graphics producers, scientists, data scientists, software developers, and web teams.
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{collaboration}
-%%%%     The GCIS facilitated the assembly of the report by providing common {\bf identifiers} for
-%%%%     resources and concepts.
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{identifiers}
-%%%%     Identifiers are URIs and correspond to explicitly defined concepts.  They can be
-%%%%     read or written using a {\bf RESTful API}.
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%         \frametitle{RESTful API}
-%%%%         The architecture for the GCIS is built around providing :
-%%%%         \begin{itemize}
-%%%%             \item{a RESTful API}\\
-%%%%                 GET a URL for JSON, Turtle or HTML
-%%%%             \item{Triple store\\
-%%%%                 URIs in the triple store are resolvable URLs in the API.}
-%%%%         \end{itemize}
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{architecture}
-%%%%     ingest - POST/PUT - relational database \\
-%%%%                     -- templates -- turtle - {\bf triple store} \\
-%%%%                     -- JSON - API/faceted search \\
-%%%% }
-%%%% 
-%%%% \begin{frame}[fragile]
-%%%%     \frametitle{SPARQL}
-%%%%      \url{http://bit.ly/gcis-dbpedia}
-%%%% \begin{tiny}
-%%%% \begin{semiverbatim}
-%%%%     PREFIX bibo: <http://purl.org/ontology/bibo/>
-%%%%     PREFIX gcis: <http://data.globalchange.gov/gcis.owl#>
-%%%%     PREFIX cito: <http://purl.org/spar/cito/>
-%%%%     PREFIX dcterms: <http://purl.org/dc/terms/>
-%%%%     PREFIX dbprop: <http://dbpedia.org/property/>
-%%%%     PREFIX dbpo: <http://dbpedia.org/ontology/>
-%%%% 
-%%%%     SELECT  DISTINCT ?dbpjournal ?gcisjournal ?issn
-%%%%     FROM <http://data.globalchange.gov>
-%%%%     WHERE \{
-%%%%         SERVICE <http://data.globalchange.gov/sparql> \{
-%%%%             ?gcisjournal a bibo:Journal .
-%%%%             ?gcisjournal bibo:issn ?issn .
-%%%%             ?gcisjournal dcterms:hasPart ?gcisarticle .
-%%%%             ?gcisarticle a bibo:Article .
-%%%%             ?gcisarticle dcterms:isPartOf ?gcisjournal .
-%%%%             ?gcisarticle cito:isCitedBy <http://data.globalchange.gov/report/nca3> .
-%%%%          \}
-%%%%        SERVICE <http://dbpedia.org/sparql> \{
-%%%%         ?dbpjournal dbprop:frequency "Monthly"@en .
-%%%%         ?dbpjournal dbpo:issn ?issnd .
-%%%%         \}
-%%%%       FILTER(?issnd = ?issn)
-%%%%     \}
-%%%% \end{semiverbatim}
-%%%% \end{tiny}
-%%%% 
-%%%% \end{frame}
-%%%% 
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{results}
-%%%% 
-%%%%     go here
-%%%% 
-%%%% }
-%%%% 
-%%%% \frame{
-%%%% \frametitle{Resources}
-%%%%     GCIDs\\
-%%%%     http://data.globalchange.gov
-%%%%     \begin{itemize}
-%%%%         \item \href{http://data.globalchange.gov/article/10.1080/15287390801997625}{/article/10.1080/15287390801997625}
-%%%%         \item \href{http://data.globalchange.gov/report/usfs-pnw-gtr-855}{/report/usfs-pnw-gtr-855}
-%%%%         \item \href{http://data.globalchange.gov/reference/007a7014-723e-4ceb-a395-5c986b1bf884}{/reference/007a7014-723e-4ceb-a395-5c986b1bf884}
-%%%%         \item \href{http://data.globalchange.gov/report/nca3/figure/global-temperature-and-carbon-dioxide}{/report/nca3/figure/global-temperature-and-carbon-dioxide}
-%%%%         \item \href{http://data.globalchange.gov/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}{/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}
-%%%%         \item \href{http://data.globalchange.gov/report/nca3/table/decisions-scales}{/report/nca3/table/decisions-scales}
-%%%%         \item \href{http://data.globalchange.gov/report/nca3/finding/extreme-precipitation-increase}{/report/nca3/finding/extreme-precipitation-increase}
-%%%%         \item \href{http://data.globalchange.gov/organization/nasa}{/organization/nasa}
-%%%%         \item \href{http://data.globalchange.gov/person/0000-0001-6667-7047}{/person/0000-0001-6667-7047}
-%%%%         \item \href{http://data.globalchange.gov/dataset/nca3-cddv2-r1}{/dataset/nca3-cddv2-r1}
-%%%%     \end{itemize}
-%%%% }
-%%%% 
-%%%% 
-
 %% tech
 \section{Information Model}
 \subsection{Relational}
@@ -332,60 +218,6 @@ Global Change Information System}
     the URL bit.ly/gcis-dbpedia to actually run this query.}
 \end{frame}
 
-%
-
-%%%% \frame{
-%%%%     \frametitle{Functionality}
-%%%%     \begin{itemize}
-%%%%         \item Support NCA3 report production
-%%%%         \item Support NCA3 website (client side jQuery)
-%%%%         \item Provide minimal landing pages for resources
-%%%%         \item Provide a public JSON API \url{http://data.globalchange.gov/api_reference}
-%%%%         \item Provide semantic information
-%%%%         \item Be interoperable (e.g. use existing identifiers)
-%%%%         \item Provide a public SPARQL endpoint \url{http://data.globalchange.gov/sparql}
-%%%%         \item JSON, RDF, schema.org, HTML, Turtle, RDF-XML
-%%%%     \end{itemize}
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{Testing}
-%%%%     \begin{itemize}
-%%%%         \item Test driven development (unit tests)
-%%%%         \item SPARQL tests
-%%%%         \item Continuous Integration Testing (github, travis-ci.org)
-%%%%         \item Test driven data acquisition
-%%%%         \item Continuous Content Validation\\
-%%%%             \url{http://github.com/USGCRP/gcis-qa}
-%%%%     \end{itemize}
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{Server Architecture}
-%%%%     \begin{itemize}
-%%%%         \item RDBMS (PostgreSQL) for storage\\
-%%%%             Fine-grained transaction auditing, referential integrity
-%%%%         \item HTML templates
-%%%%         \item Turtle templates (and other formats)
-%%%%         \item Scrape into triple store (Virtuoso)
-%%%%         \item Data structures into JSON, YAML
-%%%%         \item nginx reverse proxy cache
-%%%%     \end{itemize}
-%%%% }
-%%%% 
-%%%% \frame{
-%%%%     \frametitle{Clients}
-%%%%     \begin{itemize}
-%%%%         \item Python (Andrew)\\ \url{http://github.com/USGCRP/gcis-py-client}
-%%%%         \item Perl\\ \url{http://github.com/USGCRP/gcis-pl-client}
-%%%%         \item Javascript (jQuery)
-%%%%         \item php (Drupal)
-%%%%     \end{itemize}
-%%%% }
-%%%% 
-%%%% 
-%% concepts
-
 \section{System Architecture}
 
 \subsection{Diagram}
@@ -395,6 +227,22 @@ Global Change Information System}
     todo
 }
 
+\subsection{Content Changes}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    When identifiers exist in other APIs, we can match them with
+    GCIS identifiers, to perform updates.\\
+    For journal articles, use DOIs and crossref.org.\\
+    When identifiers are unique to specific organizations, maintain
+    a table which maps organization identifiers to GCIS identifiers.\\
+    We call these tables lexicons.\\
+    Example :\\
+    PO.DAAC has identifiers for satellites.  So does CEOS.  Map both
+    to GCIS identifiers.\\
+    PODAAC : AQUA -> /platform/aqua\\
+    CEOS : 206 -> /platform/aqua\\
+    Allows PODAAC identifiers to be mapped to CEOS identifiers.
+}
 \subsection{Schema Changes}
 
 \frame{
@@ -441,59 +289,20 @@ Global Change Information System}
     \end{Verbatim}
 \end{frame}
 
-\subsection{Updating Content}
+\section{Conclusion, Ongoing Work, Future Plans}
+
 \frame{
     \frametitle{\insertsubsectionhead}
-    todo
-    lexicons here
+Current work involves extending the data model to include models, in situ observations,
+datasets from more DAACs, and identifying lexicons and APIs for GCIS resources.
 }
 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         \Huge Narrative vs structure
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         \Huge Semantic vs Relational
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         \Huge Resources
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         \Huge Identifiers
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         \Huge Publications, Contributors\\
-%%%%         (Entities, Agents, Activities)
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         \url{http://data.globalchange.gov/resources}
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% \begin{frame}
-%%%%     \begin{center}
-%%%%         Discussion
-%%%%     \end{center}
-%%%% \end{frame}
-%%%% 
-%%%% 
-
-\section{Conclusion, Ongoing Work, Future Plans}
+\frame{
+    \frametitle{Thank you}
+    http://github.com/usgcrp/gcis\\
+    http://data.globalchange.gov\\
+    http://www.globalchange.gov
+}
 
 \end{document}
 
