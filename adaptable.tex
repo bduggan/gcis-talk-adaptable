@@ -1,14 +1,18 @@
 % GCIS ESIP talk
 
 \documentclass{beamer}
+\usepackage{lmodern}
 %\documentclass[notes=only]{beamer}
+\usepackage[T1]{fontenc}
+
+\usepackage{fancyvrb}
 
 \setbeamertemplate{navigation symbols}{}
 \usetheme{Boadilla}
 \usecolortheme{dove}
 \beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
 \setbeamertemplate{itemize items}[circle]
-\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{enumerate items}[default]
 \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
 \setbeamercolor{subsection in toc}{bg=white,fg=structure}
 \setbeamertemplate{subsection in toc}{%
@@ -71,6 +75,12 @@ Global Change Information System}
     the Global Change Information System (GCIS) to better coordinate
     and integrate the use of Federal information products on changes
     in the global environment and the implications of those changes for society.
+}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    The GCIS provides a RESTful API for retrieving global change information.\\
+    The GCIS also provides a triple store.  URLs in the triple store are resolvable
+    using the API.  URIs in the triple store are described by the GCIS ontology.
 }
 
 \subsection{Support NCA3 report production}
@@ -283,12 +293,12 @@ Global Change Information System}
     Open world assumption : a figure may be related to a dataset, but this is not in GCIS.\\
 }
 
-\subsection{Examples}
+\subsection{Example}
 \begin{frame}[fragile]
     \frametitle{\insertsubsectionhead}
      \url{http://bit.ly/gcis-dbpedia}
 \begin{tiny}
-\begin{semiverbatim}
+\begin{Verbatim}
     PREFIX bibo: <http://purl.org/ontology/bibo/>
     PREFIX gcis: <http://data.globalchange.gov/gcis.owl#>
     PREFIX cito: <http://purl.org/spar/cito/>
@@ -298,28 +308,28 @@ Global Change Information System}
 
     SELECT  DISTINCT ?dbpjournal ?gcisjournal ?issn
     FROM <http://data.globalchange.gov>
-    WHERE \{
-        SERVICE <http://data.globalchange.gov/sparql> \{
+    WHERE {
+       SERVICE <http://data.globalchange.gov/sparql> {
             ?gcisjournal a bibo:Journal .
             ?gcisjournal bibo:issn ?issn .
             ?gcisjournal dcterms:hasPart ?gcisarticle .
             ?gcisarticle a bibo:Article .
             ?gcisarticle dcterms:isPartOf ?gcisjournal .
             ?gcisarticle cito:isCitedBy <http://data.globalchange.gov/report/nca3> .
-         \}
-       SERVICE <http://dbpedia.org/sparql> \{
-        ?dbpjournal dbprop:frequency "Monthly"@en .
+       }
+       SERVICE <http://dbpedia.org/sparql> 1
+        ?dbpjournal dbprop:frequency "Monthly" @en .
         ?dbpjournal dbpo:issn ?issnd .
-        \}
-      FILTER(?issnd = ?issn)
-    \}
-\end{semiverbatim}
+       }
+       FILTER(?issnd = ?issn)
+    }
+\end{Verbatim}
 \end{tiny}
 
 \note{This is a federated SPARQL query that finds articles in GCIS from monthly journals.  Note that
     GCIS does not store the frequency of publication of a journal.  But it does store the ISSN, and dbpedia
     stores the frequency.  So its possible to join GCIS to dbpedia to use this attribute.  Go to
-    the URL bit.ly/gcis-dbpedia to actually run this query.
+    the URL bit.ly/gcis-dbpedia to actually run this query.}
 \end{frame}
 
 %
@@ -385,18 +395,51 @@ Global Change Information System}
     todo
 }
 
-\subsection{Updating the Schema}
+\subsection{Schema Changes}
 
 \frame{
     \frametitle{\insertsubsectionhead}
-    todo
+    Changes to the schema propagate to the JSON API.
+    JSON key names match the column names, and nested JSON objects correspond to relationships.
+    \begin{enumerate}
+        \item Write a test for new REST functionality.
+        \item Run the tests.  Do they test pass?
+        \item Yes?  Done.
+        \item No?  Write a schema patch.
+        \item Goto step 2.
+    \end{enumerate}
+    The tests remain part of the test suite, which is run continuously.
+    \note{This is the typical methodology for test driven development.  But the implicit
+    magic is that running the tests involves patching the database schema on a fresh instance,
+    and starting the application.}
 }
 
-\subsection{Updating the Ontology}
+\subsection{Ontology Changes}
 \frame{
     \frametitle{\insertsubsectionhead}
-    todo
+    Change to the triple are handled by turtle templates.
+    \begin{enumerate}
+        \item Write a test with a SPARQL query that should succeed.
+        \item Run the tests.  Do they pass?
+        \item Yes?  Done.
+        \item No?  Modify the turtle templates.
+        \item Go to step 2.
+    \end{enumerate}
+    The tests remain part of the test suite, which is run continuously.
+    \note{This is again the typical test drive development flow.  Here the implicit
+        magic is that the test suite constructs a temporary triple story which can
+        be queried with SPARQL.}
 }
+\begin{frame}[fragile]
+    \frametitle{\insertsubsectionhead}
+    Sample turtle template :
+    \begin{Verbatim}[commandchars=\\\{\}]
+    {\bf <%= article->uri %>} a gcis:Article;
+    {\bf <%= article->uri %>} dcterms:isPartOf
+        {\bf <%= article->journal->uri %>};
+
+    \end{Verbatim}
+\end{frame}
 
 \subsection{Updating Content}
 \frame{
