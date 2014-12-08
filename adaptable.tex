@@ -63,40 +63,71 @@ Global Change Information System}
 \end{frame}
 
 \section{Introduction and Functionality}
-\subsection{NCA3 Report Production}
+
+\subsection{Mission}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    The US Global Change Research Program (USGCRP) has established
+    the Global Change Information System (GCIS) to better coordinate
+    and integrate the use of Federal information products on changes
+    in the global environment and the implications of those changes for society.
+}
+
+\subsection{Support NCA3 report production}
 
 \frame{
     \frametitle{\insertsubsectionhead}
     In May, 2014, the US Global Change Research Program released
     the 2014 National Climate Assessment.\\
     \medskip
-    Producing this 829 page report and its web site involved collaboration between
+    Production of this 829 page report and its web site involved collaboration between
     over 300 authors, numerous editors, graphics producers, scientists, data scientists,
     software developers, and web teams.\\
     \medskip
     The content included 161 findings, 284 figures, 3,395 bibliographic references (journal
-    articles, books, reports).
+    articles, books, reports).\\
+    \medskip
+     The GCIS facilitated the assembly of the report by providing common {\bf identifiers} for
+     resources and concepts, providing a common web interface for entering data, as well as an
+     API for accepting data in a variety of formats.
+\note{Endnote, Drupal, MS Word, Excel, Google Docs, Graphics Software}
 }
 
-\subsection{NCA3 Website backend}
+\subsection{Service as the NCA3 website backend}
 \frame{
     \frametitle{\insertsubsectionhead}
-    todo
+    A website,  \url{http://nca2014.globalchange.gov}, was released concurrently with the report.
+    The site received over 200,000 visits in the first two days after launch and continues to
+    receive frequent main stream media attention.\\
+    \medskip
+    GCIS serves as the backend : the website sends client side requests to \url{http://data.globalchange.gov}
+    and receives JSON responses which it uses to populated elements of some pages dynamically.\\
+    \medskip
+    todo insert picture here
 }
 
-\subsection{Provenance of Resources}
+\subsection{Provide provenance of resources}
 \frame{
     \frametitle{\insertsubsectionhead}
-    todo
+    The GCIS ensures compliance with the Information Quality Act by providing
+    traceable identifiers for sources of information.\\
+    Given a figure, find the datasets and instruments associated the data behind it.\\
+    \medskip
+    todo sea level rise graphic
 }
 
-\subsection{Source of reliable information}
+\subsection{Be a source of reliable information}
 \frame{
     \frametitle{\insertsubsectionhead}
-    todo
+    The inverse of provenance.\\
+    \medskip
+    Given a dataset, find reports with figures generated from the dataset.\\
+    \medskip
+    Show figures associated with instruments funded by NASA.
+    \note{Provenance starts the top and looks down.  We also want to start at the bottom and look up.}
 }
 
-\subsection{Connections with other sources of information}
+\subsection{Connect disparate sources of information}
 \frame{
     \frametitle{\insertsubsectionhead}
     todo
@@ -317,6 +348,7 @@ Global Change Information System}
 \frame{
     \frametitle{\insertsubsectionhead}
     todo
+    lexicons here
 }
 
 %%%% \begin{frame}
@@ -364,7 +396,7 @@ Global Change Information System}
 %%%% 
 %%%% 
 
-\section{Conclusion, Ongoing Work and Future Plans}
+\section{Conclusion, Ongoing Work, Future Plans}
 
 \end{document}
 
