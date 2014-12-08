@@ -7,4 +7,6 @@ adaptable.pdf: adaptable.tex
 clean:
 	rm out/*
 
+watch:
+	while inotifywait adaptable.pdf; do make all; done
 

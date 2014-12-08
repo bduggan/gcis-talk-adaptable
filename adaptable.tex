@@ -9,6 +9,12 @@
 \beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
 \setbeamertemplate{itemize items}[circle]
 \setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+\setbeamercolor{subsection in toc}{bg=white,fg=structure}
+\setbeamertemplate{subsection in toc}{%
+ \hspace{1.3em}{
+     \boldmath$\cdot$
+  }~\inserttocsubsection\par}
 
 \begin{document}
 \title[Global Change Information System]{Adaptable Information Models in the\\
@@ -21,7 +27,7 @@ Global Change Information System}
     Justin Goldstein\inst{1}\inst{2}
 }
 \date{December 16, 2014} 
-\institute[UCAR, USGCRP, NASA]{
+\institute[USGCRP, UCAR]{
 \inst{1} US Global Change Research Program \\
 \inst{2} University Coporation for Atmospheric Research \\
 \inst{3} National Oceanic and Atmospheric Administration \\
@@ -42,35 +48,45 @@ Global Change Information System}
 \end{center}
 \end{frame}
 
-% \begin{frame}[plain]
-% \frametitle{Outline}\tableofcontents 
-% \end{frame}
+\begin{frame}[plain]
+\frametitle{Outline}
+\tableofcontents 
+\end{frame}
 
-\section{About}
+\section{Introduction and Functionality}
+\subsection{NCA3 Report Production}
+\subsection{NCA3 Website backend}
+\subsection{Provenance of Resources}
+\subsection{Source of reliable information}
+\subsection{Connections with other sources of information}
 
-%% overview
-
-% http://nca2014.globalchange.gov
-%   -> explore the report
-%   -> our changing climate
-%   -> explore our changing climate
-%   -> observed change
-%   -> Figure 2.2 : CO2 Concentration
-%   -> Details/Download
-%   -> Image
-%   -> datasets used
-
-\subsection{What}
 
 \frame{
-    The Global Change Information System (GCIS) provides a way to
-    access timely structured information about global change.  \\
+    In May, 2014, the US Global Change Research Program released
+    the 2014 National Climate Assessment.\\
+    \medskip
+    Producing this 829 page report and its web site involved collaboration between
+    over 300 authors, numerous editors, graphics producers, scientists, data scientists,
+    software developers, and web teams.\\
+    \medskip
+    The content included 161 findings, 284 figures, 3,395 bibliographic references (journal
+    articles, books, reports).
 }
 
 \frame{
-    The first public release of GCIS was in May, 2013.\\
-    Initial population of the database was driven by supporting {\bf the
-    Third National Climate Assessment}.  This was released in May, 2014.
+    Function 1 : support the production of the third National Climate Assessment.
+    
+    One year earlier, in May 2013, the USGCRP had the first public release of the
+    Global Change Information System.\\
+    \medskip
+    The GCIS provides identifiers and a RESTful API for resources used in the construction
+    of the report.\\
+    http://data.globalchange.gov
+    \begin{itemize}
+        \item \href{http://data.globalchange.gov/report/nca3}{/report/nca3}
+        \item \href{http://data.globalchange.gov/report/nca3/finding/extreme-precipitation-increase}{/report/nca3/finding/extreme-precipitation-increase}
+        \item \href{http://data.globalchange.gov/article/10.1080/15287390801997625}{/article/10.1080/15287390801997625}
+    \end{itemize}
 }
 
 \frame {
@@ -151,7 +167,6 @@ Global Change Information System}
 
 }
 
-\subsection{Identifiers}
 \frame{
 \frametitle{Resources}
     GCIDs\\
@@ -173,9 +188,11 @@ Global Change Information System}
 
 
 %% tech
+\section{Information Model}
+\subsection{Relational}
+\subsection{Semantic}
+\subsection{Examples}
 
-\section{Implementation}
-\subsection{Functionality}
 \frame{
     \frametitle{Functionality}
     \begin{itemize}
@@ -190,7 +207,6 @@ Global Change Information System}
     \end{itemize}
 }
 
-\subsection{Testing}
 \frame{
     \frametitle{Testing}
     \begin{itemize}
@@ -203,7 +219,6 @@ Global Change Information System}
     \end{itemize}
 }
 
-\subsection{Server Architecture}
 \frame{
     \frametitle{Server Architecture}
     \begin{itemize}
@@ -217,7 +232,6 @@ Global Change Information System}
     \end{itemize}
 }
 
-\subsection{Clients}
 \frame{
     \frametitle{Clients}
     \begin{itemize}
@@ -231,8 +245,12 @@ Global Change Information System}
 
 %% concepts
 
-\section{Information Model}
-\subsection{Concepts}
+\section{System Architecture}
+\subsection{Diagram}
+\subsection{Updating the Schema}
+\subsection{Updating the Ontology}
+\subsection{Updating Content}
+
 \begin{frame}
     \begin{center}
         \Huge Narrative vs structure
@@ -264,14 +282,12 @@ Global Change Information System}
     \end{center}
 \end{frame}
 
-\subsection{Details}
 \begin{frame}
     \begin{center}
         \url{http://data.globalchange.gov/resources}
     \end{center}
 \end{frame}
 
-\section{Discussion}
 \begin{frame}
     \begin{center}
         Discussion
