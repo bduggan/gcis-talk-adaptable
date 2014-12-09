@@ -190,7 +190,7 @@ Global Change Information System}
     \end{itemize}
     PostgreSQL hstores allow key-value storage.\\
     \medskip
-    Closed world assumption.\\
+    Closed world assumption.
     \note{Closed world : A figure is related to a chapter if and only if that relationship is present.}
     \note{Postgres also has some things like hstores for occasional key-value storage.}
 }
@@ -200,22 +200,21 @@ Global Change Information System}
     \frametitle{\insertsubsectionhead}
     \begin{itemize}
         \item Relationships are first class objects.
+        \note{not just 1-1 or 1-many or many-1 or many-many}
+        \item Concepts are formally defined in an ontology.
+        \item Formal definitions help remove ambiguities.
+        \note{There is no requirement for definitions in a relational model.  What is a figure?  What is an image?}
+        \item Interoperability with other systems.
     \end{itemize}
 
-    The semantic representation has benefits such as\\
-    The ability to describe how two entities are related.\\
-    A figure {\bf was influenced by} a report.\\
-    An article {\bf was cited by} a report.\\
-    A dataset {\bf was derived from} another dataset.\\
-    A GCIS ontology defines semantic relationships between entities.\\
-    The semantic representation allows GCIS data to be used with external data.\\
-    Open world assumption : a figure may be related to a dataset, but this is not in GCIS.\\
+    Open world assumption.
+    \note{Just because a fact is missing does not mean it is false.}
 }
 
 \subsection{Example}
 \begin{frame}[fragile]
     \frametitle{\insertsubsectionhead}
-     \url{http://bit.ly/gcis-dbpedia}
+     \url{http://bit.ly/gcis-dbpedia}\\
 \begin{tiny}
 \begin{Verbatim}
     PREFIX bibo: <http://purl.org/ontology/bibo/>
@@ -244,10 +243,11 @@ Global Change Information System}
     }
 \end{Verbatim}
 \end{tiny}
+    Find monthly journals which have had an article cited by the NCA3 report.
 
-\note{This is a federated SPARQL query that finds articles in GCIS from monthly journals.  Note that
-    GCIS does not store the frequency of publication of a journal.  But it does store the ISSN, and dbpedia
-    stores the frequency.  So its possible to join GCIS to dbpedia to use this attribute.  Go to
+\note{Note : GCIS does not store the frequency of publication of a journal.
+    But it does store the ISSN, and dbpedia stores the frequency.
+    So, it's possible to join GCIS to dbpedia to use this attribute.  Go to
     the URL bit.ly/gcis-dbpedia to actually run this query.}
 \end{frame}
 
