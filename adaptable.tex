@@ -264,22 +264,22 @@ Global Change Information System}
 }
 
 
-%% \subsection{Content Changes}
-%% \frame{
-%%     \frametitle{\insertsubsectionhead}
-%%     When identifiers exist in other APIs, we can match them with
-%%     GCIS identifiers, to perform updates.\\
-%%     For journal articles, use DOIs and crossref.org.\\
-%%     When identifiers are unique to specific organizations, maintain
-%%     a table which maps organization identifiers to GCIS identifiers.\\
-%%     We call these tables lexicons.\\
-%%     Example :\\
-%%     PO.DAAC has identifiers for satellites.  So does CEOS.  Map both
-%%     to GCIS identifiers.\\
-%%     PODAAC : AQUA -> /platform/aqua\\
-%%     CEOS : 206 -> /platform/aqua\\
-%%     Allows PODAAC identifiers to be mapped to CEOS identifiers.
-%% }
+\subsection{Content Changes}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    \begin{itemize}
+        \item Ingest happens through the API.
+        \item External identifiers are mapped to internal GCIS identifiers with lexicons.
+        \item Natural identifiers are used when possible (DOIs, ISBN numbers, ORCIDs).
+    \end{itemize}
+
+    Providing common identifiers allows external entities to map to each other.\\
+    \begin{itemize}
+        \item PODAAC : AQUA = /platform/aqua
+        \item CEOS : 206 = /platform/aqua
+        \item Therefore PODAAC : AQUA = CEOS 206
+    \end{itemize}
+}
 
 \subsection{Schema Changes}
 \frame{
