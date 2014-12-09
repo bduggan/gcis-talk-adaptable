@@ -1,7 +1,7 @@
 
 all: adaptable.pdf
 
-adaptable.pdf: adaptable.tex sealevel/figure-to-platform.pdf
+adaptable.pdf: adaptable.tex img/*.pdf
 	mkdir -p out && pdflatex -output-directory out/ ./adaptable.tex && mv out/adaptable.pdf .
 
 clean:
