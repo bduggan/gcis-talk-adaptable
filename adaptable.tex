@@ -43,7 +43,7 @@ Global Change Information System}
 \date{December 16, 2014} 
 \institute[USGCRP, UCAR]{
 \inst{1} US Global Change Research Program \\
-\inst{2} University Coporation for Atmospheric Research \\
+\inst{2} University Corporation for Atmospheric Research \\
 \inst{3} National Oceanic and Atmospheric Administration \\
 \inst{4} National Aeronautics and Space Administration
 }
@@ -287,7 +287,7 @@ Global Change Information System}
     \begin{itemize}
         \item Ingest happens through the API.
         \item External identifiers are mapped to internal GCIS identifiers with lexicons.
-        \item Natural identifiers are used when possible (DOIs, ISBN numbers, ORCIDs).
+        \item Natural identifiers are used when possible (DOIs, ISBNs, ORCIDs).
     \end{itemize}
 
     Providing common identifiers allows external entities to map to each other.\\
@@ -338,9 +338,12 @@ Global Change Information System}
     Sample turtle template :
     \begin{small}
     \begin{Verbatim}[commandchars=\\\{\}]
-    \textcolor{blue}{<%= article->uri %>} a gcis:Article;
-    \textcolor{blue}{<%= article->uri %>} dcterms:isPartOf
-        \textcolor{blue}{<%= article->journal->uri %>};
+    @prefix gcis: <http://data.globalchange.gov/gcis.owl#> .
+    @prefix dcterms: <http://purl.org/dc/terms/> .
+
+    <\textcolor{blue}{<%= article->uri %>}> a gcis:Article;
+    <\textcolor{blue}{<%= article->uri %>}> dcterms:isPartOf
+        <\textcolor{blue}{<%= article->journal->uri %>}>;
 
     \end{Verbatim}
     \end{small}
