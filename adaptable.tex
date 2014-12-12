@@ -197,6 +197,7 @@ Global Change Information System}
 \frame{
     \frametitle{\insertsubsectionhead}
     Canonical representation : PostgreSQL database.\\
+    http://data.globalchange.gov/resources
     \begin{itemize}
         \item One-many, many-one, many-many relationships.
         \item Referential integrity.
@@ -211,6 +212,15 @@ Global Change Information System}
     Closed world assumption.
     \note{Closed world : A figure is related to a chapter if and only if that relationship is present.}
     \note{Postgres also has some things like hstores for occasional key-value storage.}
+}
+
+\subsection{Relational}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    52 tables
+    \begin{center}
+    \includegraphics[width=0.5\textwidth]{img/gcis_schema.pdf}
+    \end{center}
 }
 
 \subsection{Semantic}
@@ -353,15 +363,22 @@ Global Change Information System}
 
 \frame{
     \frametitle{\insertsubsectionhead}
-Current work involves extending the data model to include models, in situ observations,
-datasets from more DAACs, and identifying lexicons and APIs for GCIS resources.
+Current work involves extending the data model for models and model runs, in situ station
+data, spatial metadata (PostGIS), agency-wide publication systems, authors of journal articles,
+and connecting to disparate sources of information using lexicons, APIs and semantic queries.
+
+\note{datasets from other NASA DAACs, NOAA data centers, models like CMIP3 and CMIP5, other
+systems like USGS ScienceBase and USGS Publication Warehouse, Wxpanding the data model
+to represent and connect new types of information}
 }
 
 \frame{
     \frametitle{Thank you}
-    http://github.com/usgcrp/gcis\\
-    http://data.globalchange.gov\\
-    http://www.globalchange.gov
+    \begin{center}
+        http://data.globalchange.gov/about (mailing list)\\
+        http://www.globalchange.gov\\
+        http://github.com/usgcrp/gcis
+    \end{center}
 }
 
 \end{document}
