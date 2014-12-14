@@ -109,8 +109,8 @@ Global Change Information System}
     the 2014 National Climate Assessment.\\
     \medskip
     Production of this 829 page report and its web site involved collaboration between
-    over 300 authors, numerous editors, graphics producers, scientists, data scientists,
-    software developers, and web teams.\\
+    over 300 authors, numerous editors, analysts, graphics producers, scientists, data
+    scientists, software developers, and web teams.\\
     \medskip
     The content included 161 findings, 284 figures, 3,395 bibliographic references (journal
     articles, books, reports).\\
@@ -151,7 +151,7 @@ Global Change Information System}
             The site received over 200,000 visits in the first two days after launch and continues to
             receive frequent main stream media attention.\\
             \medskip
-            GCIS serves as the backend; the website \textcolor{blue}{sends client side requests to \url{http://data.globalchange.gov}}
+            GCIS serves as the backend; the website \textcolor{blue}{sends client-side requests to \url{http://data.globalchange.gov}}
             and receives JSON responses which it uses to populate elements of some pages dynamically.\\
 
 }
@@ -167,8 +167,10 @@ Global Change Information System}
     \frametitle{\insertsubsectionhead}
     The identifiers within GCIS can be used to trace the provenance of figures, findings, and other resources.\\
     \medskip
-    A figure may be derived from a journal article which is derived from a dataset which is derived from a NASA standard
-    product which is derived from an instrument which is on a platform.
+    A \textcolor{blue}{figure} may be derived from a \textcolor{blue}{journal article}, which is derived from a
+    \textcolor{blue}{dataset}, which is derived
+    from a NASA standard product, which is derived from an \textcolor{blue}{instrument},
+    which is on a \textcolor{blue}{platform}.
 }
 
 \frame{
@@ -199,17 +201,16 @@ Global Change Information System}
     Canonical representation : PostgreSQL database.\\
     http://data.globalchange.gov/resources
     \begin{itemize}
-        \item One-many, many-one, many-many relationships.
-        \item Referential integrity.
-        \item String type checking.
-        \item Column constraints.
-        \item Cascading updates and deletes.
-        \item Well known optimization techniques.
-        \item Wide spread adoption.
+        \item One-many, many-one, many-many relationships
+        \item Referential integrity
+        \item String type checking
+        \item Column constraints
+        \item Cascading updates and deletes
+        \item Well-known optimization techniques
+        \item Wide-spread adoption
+        \item Extendable (hstores in PostgreSQL)
+        \item Closed world assumption
     \end{itemize}
-    PostgreSQL hstores allow key-value storage.\\
-    \medskip
-    Closed world assumption.
     \note{Closed world : A figure is related to a chapter if and only if that relationship is present.}
     \note{Postgres also has some things like hstores for occasional key-value storage.}
 }
@@ -227,15 +228,15 @@ Global Change Information System}
 \frame{
     \frametitle{\insertsubsectionhead}
     \begin{itemize}
-        \item Relationships are first class objects.
+        \item Relationships are first class objects
         \note{not just 1-1 or 1-many or many-1 or many-many}
-        \item Concepts are formally defined in an ontology.
-        \item Formal definitions help remove ambiguities.
+        \item Concepts are formally defined in an ontology
+        \item Formal definitions help remove ambiguities
         \note{There is no requirement for definitions in a relational model.  What is a figure?  What is an image?}
-        \item Interoperability with other systems.
+        \item Interoperability with other systems
+        \item Open world assumption
     \end{itemize}
 
-    Open world assumption.
     \note{Just because a fact is missing does not mean it is false.}
 }
 
@@ -271,7 +272,7 @@ Global Change Information System}
     }
 \end{Verbatim}
 \end{tiny}
-    Find monthly journals which have had an article cited by the NCA3 report.
+    Find monthly journals that have had an article cited by the NCA3 report.
 
 \note{Note : GCIS does not store the frequency of publication of a journal.
     But it does store the ISSN, and dbpedia stores the frequency.
@@ -295,9 +296,9 @@ Global Change Information System}
 \frame{
     \frametitle{\insertsubsectionhead}
     \begin{itemize}
-        \item Ingest happens through the API.
-        \item External identifiers are mapped to internal GCIS identifiers with lexicons.
-        \item Natural identifiers are used when possible (DOIs, ISBNs, ORCIDs).
+        \item Ingest happens through the API
+        \item External identifiers are mapped to internal GCIS identifiers with lexicons
+        \item Natural identifiers are used when possible (DOIs, ISBNs, ORCIDs)
     \end{itemize}
 
     Providing common identifiers allows external entities to map to each other.\\
@@ -316,7 +317,7 @@ Global Change Information System}
     JSON key names match the column names, and nested JSON objects correspond to relationships.
     \begin{enumerate}
         \item Write a test for new REST functionality.
-        \item Run the tests.  Do they test pass?
+        \item Run the tests.  Do the tests pass?
         \item Yes?  Done.
         \item No?  Write a schema patch.
         \item Goto step 2.
@@ -363,7 +364,7 @@ Global Change Information System}
 
 \frame{
     \frametitle{\insertsubsectionhead}
-Current work involves extending the data model for models and model runs, in situ station
+    Current work involves extending the data model for models and model runs, \emph{in situ} station
 data, spatial metadata (PostGIS), agency-wide publication systems, authors of journal articles,
 and connecting to disparate sources of information using lexicons, APIs and semantic queries.
 
@@ -373,7 +374,7 @@ to represent and connect new types of information}
 }
 
 \frame{
-    \frametitle{Thank you}
+    \frametitle{Thank You}
     \begin{center}
         http://data.globalchange.gov/about (mailing list)\\
         http://www.globalchange.gov\\
