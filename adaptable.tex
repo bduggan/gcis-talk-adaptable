@@ -96,9 +96,13 @@ Global Change Information System}
 }
 \frame{
     \frametitle{\insertsubsectionhead}
-    The GCIS provides a RESTful API for retrieving global change information.\\
-    The GCIS also provides a triple store.  URLs in the triple store are resolvable
-    using the API.  URIs in the triple store are described by the GCIS ontology.
+    The GCIS provides identifiers for resources (URIs), representations
+    and relationships between those resources.\\
+    
+    A RESTful API provides JSON and HTML representations.\\
+    A triple store provides a SPARQL endpoint.\\
+    URIs in the triple store are endpoints in the API.\\
+    An ontology defines the resources and the relationships between URIs.\\
 }
 
 \subsection{Producing the Third National Climate Assessment}
@@ -109,11 +113,12 @@ Global Change Information System}
     the 2014 National Climate Assessment.\\
     \medskip
     Production of this 829 page report and its web site involved collaboration between
-    over 300 authors, numerous editors, analysts, graphics producers, scientists, data
+    over 300 \textcolor{blue}{authors}, numerous editors, analysts, graphics producers, scientists, data
     scientists, software developers, and web teams.\\
     \medskip
-    The content included 161 findings, 284 figures, 3,395 bibliographic references (journal
-    articles, books, reports).\\
+    The content included 161 \textcolor{blue}{findings}, 284 \textcolor{blue}{figures},
+    3,395 bibliographic \textcolor{blue}{references} (journal
+    \textcolor{blue}{articles}, \textcolor{blue}{books}, \textcolor{blue}{reports}).\\
     \medskip
     The GCIS facilitated the assembly of the report by providing common \textcolor{blue}{identifiers} for
      resources and concepts, providing a common web interface for entering and viewing information,
@@ -151,7 +156,7 @@ Global Change Information System}
             The site received over 200,000 visits in the first two days after the launch and continues to
             receive frequent main stream media attention.\\
             \medskip
-            GCIS serves as the backend; the website \textcolor{blue}{sends client-side requests to \url{http://data.globalchange.gov}}
+            GCIS serves as the backend; the website sends client-side requests to \textcolor{blue}{\url{http://data.globalchange.gov}}
             and receives JSON responses which it uses to populate elements of some pages dynamically.\\
 
 }
@@ -165,19 +170,40 @@ Global Change Information System}
 \subsection{Provenance}
 \frame{
     \frametitle{\insertsubsectionhead}
-    The identifiers within GCIS can be used to trace the provenance of figures, findings, and other resources.\\
+    GCIS identifiers can be used to trace the provenance of resources.\\
     \medskip
     A \textcolor{blue}{figure} may be derived from a \textcolor{blue}{journal article}, which is derived from a
     \textcolor{blue}{dataset}, which is derived
     from a NASA standard product, which is derived from an \textcolor{blue}{instrument},
-    which is on a \textcolor{blue}{platform}.
+    which is on a \textcolor{blue}{platform}.\\
+    \medskip
+    The \textcolor{blue}{activity} of producing a figure uses a \textcolor{blue}{model run} which involves
+    a \textcolor{blue}{scenario} applied to a \textcolor{blue}{model} run by an \textcolor{blue}{organization}.
 }
 
 \frame{
     \frametitle{\insertsubsectionhead}
-    \begin{center}
-    \includegraphics[height=0.9\textheight]{img/figure-to-platform.pdf}
-    \end{center} 
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            \includegraphics[height=0.9\textheight]{img/figure-to-platform.pdf}
+        \end{column}
+        \begin{column}{0.2\textwidth}
+            \begin{center}
+                platform \\
+                \vspace{6pt}$\uparrow$\vspace{6pt}\\
+                instrument \\
+                \vspace{6pt}$\uparrow$\vspace{6pt}\\
+                dataset \\
+                \vspace{6pt}$\uparrow$\vspace{6pt}\\
+                dataset \\
+                \vspace{6pt}$\uparrow$\vspace{6pt}\\
+                journal article \\
+                \vspace{6pt}$\uparrow$\vspace{6pt}\\
+                figure
+            \end{center}
+        \end{column}
+    \end{columns}
+    \note{The chain of URIs can be produced as the output of a SPARQL query.}
 }
 
 
@@ -215,7 +241,6 @@ Global Change Information System}
     \note{Postgres also has some things like hstores for occasional key-value storage.}
 }
 
-\subsection{Relational}
 \frame{
     \frametitle{\insertsubsectionhead}
     52 tables
@@ -382,8 +407,8 @@ to represent and connect new types of information}
     \end{center}
     \medskip
     \begin{center}
-        \tiny{Also thanks : Curt Tilmes, Hook Hua, Brian Wilson, Gerald Manipon, Bradley Akamine,
-            Amanda McQueen,\\ Peter Fox, Marshall Ma and the Tetherless World Institute at RPI
+        \tiny{Also thanks : Curt Tilmes, Hook Hua, Brian Wilson, Gerald Manipon, Angel Li, April Sides,
+            Sarah Champion, Bradley Akamine, Amanda McQueen, Peter Fox, Marshall Ma and the Tetherless World Institute at RPI
         }
     \end{center}
 }
