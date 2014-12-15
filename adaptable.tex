@@ -117,18 +117,18 @@ Global Change Information System}
 \note{Endnote, Drupal, MS Word, Excel, Google Docs, Graphics Software}
 }
 
-\frame{
-    \frametitle{\insertsubsectionhead}
-    Report Construction
-    \begin{itemize}
-        \item Various sources spreadsheets, google docs, email, endnote, scientific software, CMSs.
-        \item Common points of reference and vocabulary
-        \item Uniform Resource Identifiers and URLs
-        \item Fine grained tracking of all changes.
-        \item Highly scalable information retrieval
-    \end{itemize}
-}
-
+%# \frame{
+%#     \frametitle{\insertsubsectionhead}
+%#     Report Construction
+%#     \begin{itemize}
+%#         \item Various sources spreadsheets, google docs, email, endnote, scientific software, CMSs.
+%#         \item Common points of reference and vocabulary
+%#         \item Uniform Resource Identifiers and URLs
+%#         \item Fine grained tracking of all changes.
+%#         \item Highly scalable information retrieval
+%#     \end{itemize}
+%# }
+%# 
 %#    The US Global Change Research Program (USGCRP) has established
 %#    the Global Change Information System (GCIS) to better coordinate
 %#    and integrate the use of Federal information products on changes
@@ -150,23 +150,23 @@ Global Change Information System}
 
 \subsection{Identifiers}
 
-\frame{
-    \frametitle{\insertsubsectionhead}
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \fbox{
-            \includegraphics[width=0.5\textheight]{img/gcis-nca3.png}
-            }
-        \end{column}
-        \begin{column}{0.6\textwidth}
-            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}}
-            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.html}
-            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.json}
-            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.ttl}
-        \end{column}
-    \end{columns}
-}
-
+%#\frame{
+%#    \frametitle{\insertsubsectionhead}
+%#    \begin{columns}
+%#        \begin{column}{0.4\textwidth}
+%#            \fbox{
+%#            \includegraphics[width=0.5\textheight]{img/gcis-nca3.png}
+%#            }
+%#        \end{column}
+%#        \begin{column}{0.6\textwidth}
+%#            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}}
+%#            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.html}
+%#            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.json}
+%#            \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.ttl}
+%#        \end{column}
+%#    \end{columns}
+%#}
+%#
 \frame{
     \frametitle{\insertsubsectionhead}
     \begin{itemize}
@@ -181,21 +181,6 @@ Global Change Information System}
         \item \href{http://data.globalchange.gov/instrument/modis}{/instrument/modis}
         \item \href{http://data.globalchange.gov/model/ccsm3}{/model/ccsm3}
     \end{itemize}
-}
-
-\subsection{Sources of Information}
-\frame{
-    \frametitle{\insertsubsectionhead}
-    \begin{itemize}
-        \item Committee on Earth Observation Satellites (CEOS)\\
-            (platforms, instruments)
-        \item NASA Physical Oceanography DAAC (datasets)
-        \item Lawrence Livermore National Lab, PCMDI (model runs)
-        \item crossref.org (journal articles)
-        \item \url{http://github.com/usgcrp/gcis-sync}
-    \end{itemize}
-    \note{We identify authoritative sources of information, and pull in some metadata and
-        references to the source of the data.}
 }
 
 
@@ -264,7 +249,8 @@ Global Change Information System}
    PREFIX gcis: <http://data.globalchange.gov/gcis.owl#> .
    PREFIX prov: <http://www.w3.org/ns/prov#> .
 
-   SELECT  ?figure ?article ?dataset ?dataset ?instrument ?platform
+   SELECT ?figure ?article ?dataset ?another_dataset
+          ?instrument ?platform
    FROM <http://data.globalchange.gov>
    WHERE {
       ?figure prov:isDerivedFrom ?article .
@@ -282,6 +268,21 @@ Global Change Information System}
 \end{small}
 \end{frame}
 
+%#\subsection{Sources of Information}
+%#\frame{
+%#    \frametitle{\insertsubsectionhead}
+%#    \begin{itemize}
+%#        \item Committee on Earth Observation Satellites (CEOS)\\
+%#            (platforms, instruments)
+%#        \item NASA Physical Oceanography DAAC (datasets)
+%#        \item Lawrence Livermore National Lab, PCMDI (model runs)
+%#        \item crossref.org (journal articles)
+%#        \item \url{http://github.com/usgcrp/gcis-sync}
+%#    \end{itemize}
+%#    \note{We identify authoritative sources of information, and pull in some metadata and
+%#        references to the source of the data.}
+%#}
+%#
 
 %% tech
 \section{Information Model}
