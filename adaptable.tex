@@ -86,45 +86,69 @@ Global Change Information System}
 
 \section{Introduction and Functionality}
 
-\subsection{Overview}
-\frame{
-    \frametitle{\insertsubsectionhead}
-    The US Global Change Research Program (USGCRP) has established
-    the Global Change Information System (GCIS) to better coordinate
-    and integrate the use of Federal information products on changes
-    in the global environment and the implications of those changes for society.
-}
-\frame{
-    \frametitle{\insertsubsectionhead}
-    The GCIS provides identifiers for resources (URIs), representations
-    and relationships between those resources.\\
-    
-    A RESTful API provides JSON and HTML representations.\\
-    A triple store provides a SPARQL endpoint.\\
-    URIs in the triple store are endpoints in the API.\\
-    An ontology defines the resources and the relationships between URIs.\\
-}
-
-\subsection{Producing the Third National Climate Assessment}
+\subsection{About}
 
 \frame{
     \frametitle{\insertsubsectionhead}
-    In May, 2014, the US Global Change Research Program released
-    the 2014 National Climate Assessment.\\
+    \begin{center}
+    \url{http://data.globalchange.gov}    
+    \end{center}
+}
+
+\subsection{The Third National Climate Assessment}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    On May 6, 2014, the US Global Change Research Program released
+    the Third National Climate Assessment (NCA3).\\
     \medskip
-    Production of this 829 page report and its web site involved collaboration between
-    over 300 \textcolor{blue}{authors}, numerous editors, analysts, graphics producers, scientists, data
-    scientists, software developers, and web teams.\\
-    \medskip
-    The content included 161 \textcolor{blue}{findings}, 284 \textcolor{blue}{figures},
-    3,395 bibliographic \textcolor{blue}{references} (journal
-    \textcolor{blue}{articles}, \textcolor{blue}{books}, \textcolor{blue}{reports}).\\
-    \medskip
-    The GCIS facilitated the assembly of the report by providing common \textcolor{blue}{identifiers} for
-     resources and concepts, providing a common web interface for entering and viewing information,
-     as well as an API for adding and removing information using a variety of formats.
+    \begin{itemize}
+        \item PDF(s)  (\url{http://data.globalchange.gov/report/nca3})
+        \item Website (\url{http://nca2014.globalchange.gov})
+    \end{itemize}
+}
+
+\frame{
+    \frametitle{\insertsubsectionhead}
+    \begin{itemize}
+        \item 829 pages
+        \item Over 300 \textcolor{blue}{authors}, numerous editors, analysts, graphics producers, scientists, data scientists, software developers, and web teams
+        \item 161 \textcolor{blue}{findings}, 284 \textcolor{blue}{figures}, 3,395 bibliographic \textcolor{blue}{references} (journal \textcolor{blue}{articles}, \textcolor{blue}{books}, \textcolor{blue}{reports}
+    \end{itemize}
 \note{Endnote, Drupal, MS Word, Excel, Google Docs, Graphics Software}
 }
+
+\frame{
+    \frametitle{\insertsubsectionhead}
+    Report Construction
+    \begin{itemize}
+        \item Various sources spreadsheets, google docs, email, endnote, scientific software, CMSs.
+        \item Common points of reference and vocabulary
+        \item Uniform Resource Identifiers and URLs
+        \item Fine grained tracking of all changes.
+        \item Highly scalable information retrieval
+    \end{itemize}
+}
+
+%#    The US Global Change Research Program (USGCRP) has established
+%#    the Global Change Information System (GCIS) to better coordinate
+%#    and integrate the use of Federal information products on changes
+%#    in the global environment and the implications of those changes for society.
+%# \frame{
+%#     \frametitle{\insertsubsectionhead}
+%#     \begin{itemize}
+%#         \item Initial GCIS release was one year earlier (May, 2013)
+%#     \end{itemize}
+%# 
+%#     The GCIS provides identifiers for resources (URIs), representations
+%#     and relationships between those resources.\\
+%#     
+%#     A RESTful API provides JSON and HTML representations.\\
+%#     A triple store provides a SPARQL endpoint.\\
+%#     URIs in the triple store are endpoints in the API.\\
+%#     An ontology defines the resources and the relationships between URIs.\\
+%# }
+
+\subsection{Identifiers}
 
 \frame{
     \frametitle{\insertsubsectionhead}
@@ -141,25 +165,52 @@ Global Change Information System}
             \small{http://data.globalchange.gov\textcolor{blue}{/report/nca3}.ttl}
         \end{column}
     \end{columns}
-    \note{The html is implicit but can be replaced with json (or yaml), ttl for turtle, or other rdf serializations like ntriples, rdf
-        Also, /report/nca3 is the URI which we treat as the canonical identifier for this report.  We do the same for other objects
-        like chapters, references, figures, findings, authors.
-        }
 }
 
-
-\subsection{Supporting the NCA3 website}
 \frame{
     \frametitle{\insertsubsectionhead}
-    
-    A website, \textcolor{blue}{\url{http://nca2014.globalchange.gov}}, was released concurrently with the report.
-            The site received over 200,000 visits in the first two days after the launch and continues to
-            receive frequent main stream media attention.\\
-            \medskip
-            GCIS serves as the backend; the website sends client-side requests to \textcolor{blue}{\url{http://data.globalchange.gov}}
-            and receives JSON responses which it uses to populate elements of some pages dynamically.\\
-
+    \begin{itemize}
+        \item \href{http://data.globalchange.gov/article/10.1080/15287390801997625}{/article/10.1080/15287390801997625}
+        \item \href{http://data.globalchange.gov/report/usfs-pnw-gtr-855}{/report/usfs-pnw-gtr-855}
+        \item \href{http://data.globalchange.gov/reference/007a7014-723e-4ceb-a395-5c986b1bf884}{/reference/007a7014-723e-4ceb-a395-5c986b1bf884}
+        \item \href{http://data.globalchange.gov/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}{/image/26fc56f4-b4e0-425b-adc8-14c6d961d558}
+        \item \href{http://data.globalchange.gov/organization/nasa}{/organization/nasa}
+        \item \href{http://data.globalchange.gov/person/0000-0001-6667-7047}{/person/0000-0001-6667-7047}
+        \item \href{http://data.globalchange.gov/dataset/nca3-cddv2-r1}{/dataset/nca3-cddv2-r1}
+        \item \href{http://data.globalchange.gov/platform/aqua}{/platform/aqua}
+        \item \href{http://data.globalchange.gov/instrument/modis}{/instrument/modis}
+        \item \href{http://data.globalchange.gov/model/ccsm3}{/model/ccsm3}
+    \end{itemize}
 }
+
+\subsection{Sources of Information}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    \begin{itemize}
+        \item Committee on Earth Observation Satellites (CEOS)\\
+            (platforms, instruments)
+        \item NASA Physical Oceanography DAAC (datasets)
+        \item Lawrence Livermore National Lab, PCMDI (model runs)
+        \item crossref.org (journal articles)
+        \item \url{http://github.com/usgcrp/gcis-sync}
+    \end{itemize}
+    \note{We identify authoritative sources of information, and pull in some metadata and
+        references to the source of the data.}
+}
+
+
+\subsection{RESTful API}
+%# \frame{
+%#     \frametitle{\insertsubsectionhead}
+%#     
+%#     A website, \textcolor{blue}{\url{http://nca2014.globalchange.gov}}, was released concurrently with the report.
+%#             The site received over 200,000 visits in the first two days after the launch and continues to
+%#             receive frequent main stream media attention.\\
+%#             \medskip
+%#             GCIS serves as the backend; the website sends client-side requests to \textcolor{blue}{\url{http://data.globalchange.gov}}
+%#             and receives JSON responses which it uses to populate elements of some pages dynamically.\\
+%# 
+%# }
 
 \frame{
     \frametitle{\insertsubsectionhead}
@@ -167,20 +218,7 @@ Global Change Information System}
     \includegraphics[height=0.9\textheight]{img/ncaweb-drawn.pdf}
 }
 
-\subsection{Provenance}
-\frame{
-    \frametitle{\insertsubsectionhead}
-    GCIS identifiers can be used to trace the provenance of resources.\\
-    \medskip
-    A \textcolor{blue}{figure} may be derived from a \textcolor{blue}{journal article}, which is derived from a
-    \textcolor{blue}{dataset}, which is derived
-    from a NASA standard product, which is derived from an \textcolor{blue}{instrument},
-    which is on a \textcolor{blue}{platform}.\\
-    \medskip
-    The \textcolor{blue}{activity} of producing a figure uses a \textcolor{blue}{model run} which involves
-    a \textcolor{blue}{scenario} applied to a \textcolor{blue}{model} run by an \textcolor{blue}{organization}.
-}
-
+\subsection{Semantic API}
 \frame{
     \frametitle{\insertsubsectionhead}
     \begin{columns}
@@ -205,43 +243,53 @@ Global Change Information System}
     \end{columns}
     \note{The chain of URIs can be produced as the output of a SPARQL query.}
 }
+%# \frame{
+%#     \frametitle{\insertsubsectionhead}
+%#     GCIS identifiers can be used to trace the provenance of resources.\\
+%#     \medskip
+%#     A \textcolor{blue}{figure} may be derived from a \textcolor{blue}{journal article}, which is derived from a
+%#     \textcolor{blue}{dataset}, which is derived
+%#     from a NASA standard product, which is derived from an \textcolor{blue}{instrument},
+%#     which is on a \textcolor{blue}{platform}.\\
+%#     \medskip
+%#     The \textcolor{blue}{activity} of producing a figure uses a \textcolor{blue}{model run} which involves
+%#     a \textcolor{blue}{scenario} applied to a \textcolor{blue}{model} run by an \textcolor{blue}{organization}.
+%# }
 
 
-\subsection{Source of Information}
-\frame{
+\begin{frame}[fragile]
     \frametitle{\insertsubsectionhead}
-    \begin{itemize}
-        \item Committee on Earth Observation Satellites (CEOS)\\
-            (platforms, instruments)
-        \item NASA Physical Oceanography DAAC (datasets)
-        \item Lawrence Livermore National Lab, PCMDI (model runs)
-        \item crossref.org (journal articles)
-        \item \url{http://github.com/usgcrp/gcis-sync}
-    \end{itemize}
-    \note{We identify authoritative sources of information, and pull in some metadata and
-        references to the source of the data.}
-}
+\begin{small}
+\begin{Verbatim}
+   PREFIX gcis: <http://data.globalchange.gov/gcis.owl#> .
+   PREFIX prov: <http://www.w3.org/ns/prov#> .
 
-\subsection{Queries}
-\frame{
-    \frametitle{\insertsubsectionhead}
-    Structured information allows for querying.
-    \medskip
-    \begin{itemize}
-        \item Find reports with figures derived from a dataset generated by an instrument on a specific platform.
-        \item Show figures associated with data generated by instruments on platforms flown by NOAA.
-    \end{itemize}
-    The structure of queries is determined by the information model.
-}
+   SELECT  ?figure ?article ?dataset ?dataset ?instrument ?platform
+   FROM <http://data.globalchange.gov>
+   WHERE {
+      ?figure prov:isDerivedFrom ?article .
+      ?article prov:isDerivedFrom ?dataset .
+      ?dataset prov:isDerivedFrom ?another_dataset .
+      ?another_dataset gcis:hasInstrument ?instrument .
+      ?instrument gcis:hasPlatform ?platform .
+
+      ?figure gcis:isFigureOf ?chapter .
+      ?chapter gcis:ChapterNumber "2" .
+      ?report gcis:hasChapter ?chapter .
+      ?report dcterms:title "The Third National Climate Assessment" .
+   }
+\end{Verbatim}
+\end{small}
+\end{frame}
+
 
 %% tech
 \section{Information Model}
 \subsection{Relational}
 \frame{
     \frametitle{\insertsubsectionhead}
-    Canonical representation : PostgreSQL database.\\
-    http://data.globalchange.gov/resources
     \begin{itemize}
+        \item Canonical representation
         \item One-many, many-one, many-many relationships
         \item Referential integrity
         \item Strict type checking
@@ -258,7 +306,6 @@ Global Change Information System}
 
 \frame{
     \frametitle{\insertsubsectionhead}
-    52 tables
     \begin{center}
     \includegraphics[width=0.5\textwidth]{img/gcis_schema.pdf}
     \end{center}
@@ -280,7 +327,6 @@ Global Change Information System}
     \note{Just because a fact is missing does not mean it is false.}
 }
 
-\subsection{Example}
 \begin{frame}[fragile]
     \frametitle{\insertsubsectionhead}
      \url{http://bit.ly/gcis-dbpedia}\\
@@ -332,25 +378,18 @@ Global Change Information System}
 }
 
 
-\subsection{Content Changes}
+\subsection{Lexicons}
 \frame{
     \frametitle{\insertsubsectionhead}
+    Associations between GCIS identifiers and external terms.
     \begin{itemize}
-        \item Ingest happens through the API
-        \item External identifiers are mapped to internal GCIS identifiers with lexicons
-        \item Natural identifiers are used when possible (DOIs, ISBNs, ORCIDs)
+        \item GCIS identifier : /podaac/aqua
+        \item PODAAC identifier : AQUA
+        \item CEOS identifier : 206
     \end{itemize}
-
-    Providing common identifiers allows external entities to map to each other.\\
-    \begin{itemize}
-        \item PODAAC : AQUA = /platform/aqua
-        \item CEOS : 206 = /platform/aqua
-        \item Therefore PODAAC : AQUA = CEOS 206
-    \end{itemize}
-    New sources of information may require changes to the information model.
 }
 
-\subsection{Schema Changes}
+\subsection{Relational Model Changes}
 \frame{
     \frametitle{\insertsubsectionhead}
     Changes to the schema propagate to the JSON API.
@@ -368,7 +407,7 @@ Global Change Information System}
     and starting the application.}
 }
 
-\subsection{Ontology Changes}
+\subsection{Semantic Model Changes}
 \frame{
     \frametitle{\insertsubsectionhead}
     Change to the triple are handled by turtle templates.
