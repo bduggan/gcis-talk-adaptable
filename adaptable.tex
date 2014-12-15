@@ -207,6 +207,21 @@ Global Change Information System}
 }
 
 
+\subsection{Source of Information}
+\frame{
+    \frametitle{\insertsubsectionhead}
+    \begin{itemize}
+        \item Committee on Earth Observation Satellites (CEOS)\\
+            (platforms, instruments)
+        \item NASA Physical Oceanography DAAC (datasets)
+        \item Lawrence Livermore National Lab, PCMDI (model runs)
+        \item crossref.org (journal articles)
+        \item \url{http://github.com/usgcrp/gcis-sync}
+    \end{itemize}
+    \note{We identify authoritative sources of information, and pull in some metadata and
+        references to the source of the data.}
+}
+
 \subsection{Queries}
 \frame{
     \frametitle{\insertsubsectionhead}
@@ -229,7 +244,7 @@ Global Change Information System}
     \begin{itemize}
         \item One-many, many-one, many-many relationships
         \item Referential integrity
-        \item String type checking
+        \item Strict type checking
         \item Column constraints
         \item Cascading updates and deletes
         \item Well-known optimization techniques
